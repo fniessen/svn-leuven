@@ -195,12 +195,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
 </head>
 <body>
 <div id="content">
@@ -209,35 +203,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8b44019">How to fix &ldquo;unable to create pristine install stream&rdquo;</a></li>
-<li><a href="#org2802ba6">colordiff</a></li>
-<li><a href="#orge20c0c9">SHOW - View your changes</a></li>
-<li><a href="#org029d009">SHOW - View the commit history</a>
+<li><a href="#orgd01f9f1">How to fix &ldquo;unable to create pristine install stream&rdquo;</a></li>
+<li><a href="#org76a7c1f">colordiff</a></li>
+<li><a href="#org8b7e589">SHOW - View your changes</a></li>
+<li><a href="#orgfb32eb3">SHOW - View the commit history</a>
 <ul>
-<li><a href="#org93db7fb">One-line log format (&rsquo;git log&rsquo;)</a></li>
-<li><a href="#org5ef9a1a">Make status checks of your working copy easier</a></li>
-<li><a href="#orgf32e2a9">Show a single revision (&rsquo;git show&rsquo;)</a></li>
-<li><a href="#orgcae1c47">List all the changed files in a commit</a></li>
-<li><a href="#org8ce64a7">Show the history of a file</a></li>
+<li><a href="#org7b51eee">One-line log format (&rsquo;git log&rsquo;)</a></li>
+<li><a href="#orgab0aa9e">Make status checks of your working copy easier</a></li>
+<li><a href="#org671f20d">Show a single revision (&rsquo;git show&rsquo;)</a></li>
+<li><a href="#org316fd4b">List all the changed files in a commit</a></li>
+<li><a href="#org8b17ddf">Show the history of a file</a></li>
 </ul>
 </li>
-<li><a href="#org5a55291">REVERT - Undo things</a>
+<li><a href="#org296b696">REVERT - Undo things</a>
 <ul>
-<li><a href="#orgc5ddb5a">&ldquo;Unmodify&rdquo; files</a></li>
-<li><a href="#orgae8af1d">&ldquo;Unadd&rdquo; a file to SVN before commit</a></li>
+<li><a href="#orga20e7fd">&ldquo;Unmodify&rdquo; files</a></li>
+<li><a href="#org591aa0c">&ldquo;Unadd&rdquo; a file to SVN before commit</a></li>
 </ul>
 </li>
-<li><a href="#orgc38e6f4">Conflicts</a></li>
-<li><a href="#org8c6d680">UPDATE - Pull</a>
+<li><a href="#org002fb63">Conflicts</a></li>
+<li><a href="#org8c16187">UPDATE - Pull</a>
 <ul>
-<li><a href="#orgd820459">Check for incoming changes</a></li>
-<li><a href="#org97fd491">Preview incoming changes</a></li>
-<li><a href="#orgbc6c320">Checkout a specific older version of the source code</a></li>
+<li><a href="#org206507f">Check for incoming changes</a></li>
+<li><a href="#org252c37e">Preview incoming changes</a></li>
+<li><a href="#org1914164">Checkout a specific older version of the source code</a></li>
 </ul>
 </li>
-<li><a href="#org166a788">Ignore files</a></li>
-<li><a href="#org9e9f5a2">PUBLISH - Prepare a release</a></li>
-<li><a href="#org31ce6a6">Commands</a></li>
+<li><a href="#orgc0c8038">Ignore files</a></li>
+<li><a href="#org7b42920">PUBLISH - Prepare a release</a></li>
+<li><a href="#orgf37ee22">Commands</a></li>
 </ul>
 </div>
 </div>
@@ -245,9 +239,9 @@
 Doc: <a href="http://liris.cnrs.fr/seminaires/documents/seminaire_tuto_SVN.pdf">http://liris.cnrs.fr/seminaires/documents/seminaire_tuto_SVN.pdf</a>
 </p>
 
-<div id="outline-container-org8b44019" class="outline-2">
-<h2 id="org8b44019">How to fix &ldquo;unable to create pristine install stream&rdquo;</h2>
-<div class="outline-text-2" id="text-org8b44019">
+<div id="outline-container-orgd01f9f1" class="outline-2">
+<h2 id="orgd01f9f1">How to fix &ldquo;unable to create pristine install stream&rdquo;</h2>
+<div class="outline-text-2" id="text-orgd01f9f1">
 <div class="org-src-container">
 <pre class="src src-shell"><span class="org-builtin">cd</span> .svn
 rm -rf tmp
@@ -257,9 +251,9 @@ mkdir tmp
 </div>
 </div>
 
-<div id="outline-container-org2802ba6" class="outline-2">
-<h2 id="org2802ba6">colordiff</h2>
-<div class="outline-text-2" id="text-org2802ba6">
+<div id="outline-container-org76a7c1f" class="outline-2">
+<h2 id="org76a7c1f">colordiff</h2>
+<div class="outline-text-2" id="text-org76a7c1f">
 <p>
 Use <code>colordiff</code> for my <code>svn diff</code> command (set in <code>~/.subversion/config</code>):
 </p>
@@ -271,9 +265,9 @@ Use <code>colordiff</code> for my <code>svn diff</code> command (set in <code>~/
 </div>
 </div>
 
-<div id="outline-container-orge20c0c9" class="outline-2">
-<h2 id="orge20c0c9">SHOW - View your changes</h2>
-<div class="outline-text-2" id="text-orge20c0c9">
+<div id="outline-container-org8b7e589" class="outline-2">
+<h2 id="org8b7e589">SHOW - View your changes</h2>
+<div class="outline-text-2" id="text-org8b7e589">
 <p>
 To <b>compare all modified files</b> in your working copy with the <code>HEAD</code> revision in the
 repository, use the following command:
@@ -302,26 +296,26 @@ EXCELLENT option <code>--strip-trailing-cr</code>!
 </div>
 </div>
 
-<div id="outline-container-org029d009" class="outline-2">
-<h2 id="org029d009">SHOW - View the commit history</h2>
-<div class="outline-text-2" id="text-org029d009">
+<div id="outline-container-orgfb32eb3" class="outline-2">
+<h2 id="orgfb32eb3">SHOW - View the commit history</h2>
+<div class="outline-text-2" id="text-orgfb32eb3">
 <p>
 The following aliases are interesting for using SVN a bit like Git.
 </p>
 </div>
 
-<div id="outline-container-org93db7fb" class="outline-3">
-<h3 id="org93db7fb">One-line log format (&rsquo;git log&rsquo;)</h3>
-<div class="outline-text-3" id="text-org93db7fb">
+<div id="outline-container-org7b51eee" class="outline-3">
+<h3 id="org7b51eee">One-line log format (&rsquo;git log&rsquo;)</h3>
+<div class="outline-text-3" id="text-org7b51eee">
 <p>
 See <code>svn-log</code> in my Shell configuration.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5ef9a1a" class="outline-3">
-<h3 id="org5ef9a1a">Make status checks of your working copy easier</h3>
-<div class="outline-text-3" id="text-org5ef9a1a">
+<div id="outline-container-orgab0aa9e" class="outline-3">
+<h3 id="orgab0aa9e">Make status checks of your working copy easier</h3>
+<div class="outline-text-3" id="text-orgab0aa9e">
 <p>
 Add them to your <code>.bashrc</code>:
 </p>
@@ -336,9 +330,9 @@ Add them to your <code>.bashrc</code>:
 </div>
 </div>
 
-<div id="outline-container-orgf32e2a9" class="outline-3">
-<h3 id="orgf32e2a9">Show a single revision (&rsquo;git show&rsquo;)</h3>
-<div class="outline-text-3" id="text-orgf32e2a9">
+<div id="outline-container-org671f20d" class="outline-3">
+<h3 id="org671f20d">Show a single revision (&rsquo;git show&rsquo;)</h3>
+<div class="outline-text-3" id="text-org671f20d">
 <div class="org-src-container">
 <pre class="src src-shell">svn diff -c 4795                        <span class="org-comment-delimiter"># </span><span class="org-comment">Or svn diff -r 4795:4792.</span>
 </pre>
@@ -350,9 +344,9 @@ See <code>svn-show</code> and <code>svn-showtool</code> in my Shell configuratio
 </div>
 </div>
 
-<div id="outline-container-orgcae1c47" class="outline-3">
-<h3 id="orgcae1c47">List all the changed files in a commit</h3>
-<div class="outline-text-3" id="text-orgcae1c47">
+<div id="outline-container-org316fd4b" class="outline-3">
+<h3 id="org316fd4b">List all the changed files in a commit</h3>
+<div class="outline-text-3" id="text-org316fd4b">
 <p>
 Output filenames of files changed in each commit:
 </p>
@@ -368,9 +362,9 @@ See <code>svn-changed-files</code> in my Shell configuration.
 </div>
 </div>
 
-<div id="outline-container-org8ce64a7" class="outline-3">
-<h3 id="org8ce64a7">Show the history of a file</h3>
-<div class="outline-text-3" id="text-org8ce64a7">
+<div id="outline-container-org8b17ddf" class="outline-3">
+<h3 id="org8b17ddf">Show the history of a file</h3>
+<div class="outline-text-3" id="text-org8b17ddf">
 <p>
 To view all historical changes to a file in SVN:
 </p>
@@ -396,9 +390,9 @@ See <code>svn-filelog-p</code> in my Shell configuration.
 </div>
 </div>
 
-<div id="outline-container-org5a55291" class="outline-2">
-<h2 id="org5a55291">REVERT - Undo things</h2>
-<div class="outline-text-2" id="text-org5a55291">
+<div id="outline-container-org296b696" class="outline-2">
+<h2 id="org296b696">REVERT - Undo things</h2>
+<div class="outline-text-2" id="text-org296b696">
 <p>
 <code>svn merge -r 1944:1943 .</code> should revert the changes of <code>r1944</code> in your working
 copy. You can then review the changes in your working copy (with diff), but
@@ -406,9 +400,9 @@ you&rsquo;d need to commit in order to apply the revert into the repository.
 </p>
 </div>
 
-<div id="outline-container-orgc5ddb5a" class="outline-3">
-<h3 id="orgc5ddb5a">&ldquo;Unmodify&rdquo; files</h3>
-<div class="outline-text-3" id="text-orgc5ddb5a">
+<div id="outline-container-orga20e7fd" class="outline-3">
+<h3 id="orga20e7fd">&ldquo;Unmodify&rdquo; files</h3>
+<div class="outline-text-3" id="text-orga20e7fd">
 <p>
 To discard local changes in current folder (revert a whole directory of files) :
 </p>
@@ -420,9 +414,9 @@ To discard local changes in current folder (revert a whole directory of files) :
 </div>
 </div>
 
-<div id="outline-container-orgae8af1d" class="outline-3">
-<h3 id="orgae8af1d">&ldquo;Unadd&rdquo; a file to SVN before commit</h3>
-<div class="outline-text-3" id="text-orgae8af1d">
+<div id="outline-container-org591aa0c" class="outline-3">
+<h3 id="org591aa0c">&ldquo;Unadd&rdquo; a file to SVN before commit</h3>
+<div class="outline-text-3" id="text-org591aa0c">
 <pre class="example">
 svn rm --keep-local folder_name
 </pre>
@@ -444,9 +438,9 @@ is unsafe, as it looses all local changes.
 </div>
 </div>
 
-<div id="outline-container-orgc38e6f4" class="outline-2">
-<h2 id="orgc38e6f4">Conflicts</h2>
-<div class="outline-text-2" id="text-orgc38e6f4">
+<div id="outline-container-org002fb63" class="outline-2">
+<h2 id="org002fb63">Conflicts</h2>
+<div class="outline-text-2" id="text-org002fb63">
 <p>
 Files marked as <b>conflicted</b> show up with a C in <code>svn status</code>, and SVN will refuse
 to commit such files.
@@ -468,9 +462,9 @@ svn status -q
 </div>
 </div>
 
-<div id="outline-container-org8c6d680" class="outline-2">
-<h2 id="org8c6d680">UPDATE - Pull</h2>
-<div class="outline-text-2" id="text-org8c6d680">
+<div id="outline-container-org8c16187" class="outline-2">
+<h2 id="org8c16187">UPDATE - Pull</h2>
+<div class="outline-text-2" id="text-org8c16187">
 <p>
 <a href="http://stackoverflow.com/questions/182945/how-to-see-what-will-be-updated-from-repository-before-issuing-svn-update-comm">http://stackoverflow.com/questions/182945/how-to-see-what-will-be-updated-from-repository-before-issuing-svn-update-comm</a>
 </p>
@@ -552,9 +546,9 @@ that were changed on the trunk between when the branch was created and &ldquo;no
 </div>
 </div>
 
-<div id="outline-container-orgd820459" class="outline-3">
-<h3 id="orgd820459">Check for incoming changes</h3>
-<div class="outline-text-3" id="text-orgd820459">
+<div id="outline-container-org206507f" class="outline-3">
+<h3 id="org206507f">Check for incoming changes</h3>
+<div class="outline-text-3" id="text-org206507f">
 <p>
 Show which files are modified in the repository (with an <code>*</code>):
 </p>
@@ -572,9 +566,9 @@ svn log --diff -r BASE:HEAD             <span class="org-comment-delimiter"># </
 </div>
 </div>
 
-<div id="outline-container-org97fd491" class="outline-3">
-<h3 id="org97fd491">Preview incoming changes</h3>
-<div class="outline-text-3" id="text-org97fd491">
+<div id="outline-container-org252c37e" class="outline-3">
+<h3 id="org252c37e">Preview incoming changes</h3>
+<div class="outline-text-3" id="text-org252c37e">
 <p>
 See what has been changed (how it&rsquo;s different from my working copy):
 </p>
@@ -586,9 +580,9 @@ See what has been changed (how it&rsquo;s different from my working copy):
 </div>
 </div>
 
-<div id="outline-container-orgbc6c320" class="outline-3">
-<h3 id="orgbc6c320">Checkout a specific older version of the source code</h3>
-<div class="outline-text-3" id="text-orgbc6c320">
+<div id="outline-container-org1914164" class="outline-3">
+<h3 id="org1914164">Checkout a specific older version of the source code</h3>
+<div class="outline-text-3" id="text-org1914164">
 <p>
 Assuming that the source has already been checked out (that is you have an
 already existing folder&#x2026;), update the revision (say we want to get r4732):
@@ -602,9 +596,9 @@ already existing folder&#x2026;), update the revision (say we want to get r4732)
 </div>
 </div>
 
-<div id="outline-container-org166a788" class="outline-2">
-<h2 id="org166a788">Ignore files</h2>
-<div class="outline-text-2" id="text-org166a788">
+<div id="outline-container-orgc0c8038" class="outline-2">
+<h2 id="orgc0c8038">Ignore files</h2>
+<div class="outline-text-2" id="text-orgc0c8038">
 <p>
 Edit the file ignoring.txt to put the files you want actually to ignore. Then
 use this one to ignore the files listed in the file:
@@ -648,9 +642,9 @@ svn proplist -v
 </div>
 </div>
 
-<div id="outline-container-org9e9f5a2" class="outline-2">
-<h2 id="org9e9f5a2">PUBLISH - Prepare a release</h2>
-<div class="outline-text-2" id="text-org9e9f5a2">
+<div id="outline-container-org7b42920" class="outline-2">
+<h2 id="org7b42920">PUBLISH - Prepare a release</h2>
+<div class="outline-text-2" id="text-org7b42920">
 <p>
 SVN diff zip revision to deploy.
 </p>
@@ -686,9 +680,9 @@ structure &#x2013; from revision <code>123:HEAD</code>.
 </div>
 </div>
 
-<div id="outline-container-org31ce6a6" class="outline-2">
-<h2 id="org31ce6a6">Commands</h2>
-<div class="outline-text-2" id="text-org31ce6a6">
+<div id="outline-container-orgf37ee22" class="outline-2">
+<h2 id="orgf37ee22">Commands</h2>
+<div class="outline-text-2" id="text-orgf37ee22">
 <div class="org-src-container">
 <pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Search through files, ignoring .svn directories.</span>
 <span class="org-builtin">alias</span> svn-find=<span class="org-string">'find . -not \( -name .svn -prune \)'</span>
@@ -725,7 +719,7 @@ This alias can be used as:
 </div>
 
 <p>
-See <a href="file:///home/fni/.dotfiles/plugins/git-leuven/SVN.html">SVN aliases</a> for more information about these:
+See <a href="file:///cygdrive/d/Users/fni/.dotfiles/plugins/git-leuven/SVN.html">SVN aliases</a> for more information about these:
 </p>
 
 <div class="org-src-container">
@@ -753,17 +747,18 @@ See <a href="file:///home/fni/.dotfiles/plugins/git-leuven/SVN.html">SVN aliases
 <span class="org-comment-delimiter"># </span><span class="org-comment">With every separator line, output what we stored before and reset the comment variable</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">To skip the first line we also check if we've already stored a revision</span>
 /^-+$/ &amp;&amp; rev {
-   print rev <span class="org-string">" | "</span> date <span class="org-string">" | "</span> user <span class="org-string">" | "</span> comment
+   print date <span class="org-string">" | "</span> rev <span class="org-string">" | "</span> user <span class="org-string">" | "</span> comment
    comment = <span class="org-string">""</span>
 }
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span class="org-builtin">alias</span> svn-log=<span class="org-string">"svn log \</span>
-<span class="org-string">                   | svn-short-log \</span>
-<span class="org-string">                   | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[0;34m&lt;\3&gt;/' \</span>
-<span class="org-string">                   | less -RF"</span>
+<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Usage: svn-log</span>
+svn log <span class="org-sh-escaped-newline">\</span>
+    | svn-short-log <span class="org-sh-escaped-newline">\</span>
+    | sed -e <span class="org-string">'s/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[0;34m&lt;\3&gt;/'</span> <span class="org-sh-escaped-newline">\</span>
+    | less -RF
 </pre>
 </div>
 
@@ -781,11 +776,12 @@ See <a href="file:///home/fni/.dotfiles/plugins/git-leuven/SVN.html">SVN aliases
 
 <div class="org-src-container">
 <pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Usage: svn-show @REV</span>
-<span class="org-function-name">svn-show</span>() {
-    svn diff -c <span class="org-string">"$1"</span> | less
-}
+svn diff -c <span class="org-string">"$1"</span> | less
+</pre>
+</div>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">svn-showtool @REV PATH</span>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">svn-showtool @REV PATH</span>
 <span class="org-function-name">svn-showtool</span>() {
     svn diff --diff-cmd=<span class="org-string">'meld'</span> -c <span class="org-string">"$1"</span> <span class="org-string">"$2"</span>
 }

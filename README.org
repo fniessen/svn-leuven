@@ -334,16 +334,17 @@ See [[file:~/.dotfiles/plugins/git-leuven/SVN.org][SVN aliases]] for more inform
 # With every separator line, output what we stored before and reset the comment variable
 # To skip the first line we also check if we've already stored a revision
 /^-+$/ && rev {
-   print rev " | " date " | " user " | " comment
+   print date " | " rev " | " user " | " comment
    comment = ""
 }
 #+end_src
 
-#+begin_src shell
-alias svn-log="svn log \
-                   | svn-short-log \
-                   | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[0;34m<\3>/' \
-                   | less -RF"
+#+begin_src shell :tangle bin/svn-log
+# Usage: svn-log
+svn log \
+    | svn-short-log \
+    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[0;34m<\3>/' \
+    | less -RF
 #+end_src
 
 #+begin_src shell
@@ -357,12 +358,12 @@ alias svn-status="svn status \
 alias svn-st=svn-status
 #+end_src
 
-#+begin_src shell
+#+begin_src shell :tangle bin/svn-show
 # Usage: svn-show @REV
-svn-show() {
-    svn diff -c "$1" | less
-}
+svn diff -c "$1" | less
+#+end_src
 
+#+begin_src shell
 # svn-showtool @REV PATH
 svn-showtool() {
     svn diff --diff-cmd='meld' -c "$1" "$2"
