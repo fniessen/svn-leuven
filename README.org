@@ -249,6 +249,24 @@ You can then check which files are ignored via:
 
 : svn proplist -v
 
+** Ignore files from the command line
+
+Add a file (or a file glob pattern) to ignore without deleting the previous
+value of the ~svn:ignore~ property... from the command line.
+
+#+begin_src shell :tangle bin/svn-ignore
+# Usage: svnignore admin/notes/\*.tex
+
+target="$1"
+targetdirectory=$(dirname $target)
+targetfilepattern=$(basename $target)
+
+svnignores=$(svn propget svn:ignore "$targetdirectory")
+svnignores="$svnignores"$'\n'"$targetfilepattern"
+printf "Ignore '$targetfilepattern'\n"
+svn propset svn:ignore "$svnignores" "$targetdirectory"
+#+end_src
+
 * PUBLISH - Prepare a release
 
 SVN diff zip revision to deploy.
@@ -347,14 +365,17 @@ svn log \
     | less -RF
 #+end_src
 
+#+begin_src shell :tangle bin/svn-status
+svn status \
+    | sed -e 's/^\(\([A-Z]\s\+\(+\s\+\)\?\)\?C .*\)$/\o33\[1;35m\1\o33[0m/' \
+          -e 's/^\(\s*M.*\)$/\o33\[1;33m\1\o33[0m/' \
+          -e 's/^\(A.*\)$/\o33\[1;32m\1\o33[0m/' \
+          -e 's/^\(?.*\)$/\o33\[0;36m\1\o33[0m/' \
+          -e 's/^\(\(D\|~\).*\)$/\o33\[1;31m\1\o33[0m/' \
+    | less -RF
+#+end_src
+
 #+begin_src shell
-alias svn-status="svn status \
-                      | sed -e 's/^\(\([A-Z]\s\+\(+\s\+\)\?\)\?C .*\)$/\o33\[1;35m\1\o33[0m/' \
-                            -e 's/^\(\s*M.*\)$/\o33\[1;33m\1\o33[0m/' \
-                            -e 's/^\(A.*\)$/\o33\[1;32m\1\o33[0m/' \
-                            -e 's/^\(?.*\)$/\o33\[0;36m\1\o33[0m/' \
-                            -e 's/^\(\(D\|~\).*\)$/\o33\[1;31m\1\o33[0m/' \
-                      | less -RF"
 alias svn-st=svn-status
 #+end_src
 
