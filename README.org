@@ -6,7 +6,7 @@
 #+LANGUAGE:  en
 #+OPTIONS:   H:4 num:nil toc:2
 
-#+SETUPFILE: ~/.dotfiles/org/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 
 #+EXPORT_EXCLUDE_TAGS: noexport
 
@@ -53,7 +53,43 @@ The following aliases are interesting for using SVN a bit like Git.
 
 ** One-line log format ('git log')
 
-See ~svn-log~ in my Shell configuration.
+#+begin_src shell :tangle bin/svn-short-log
+#!/usr/bin/awk -f
+
+# Original author: Plexus.
+
+# Convert the "svn log" output into a one liner format, which is easier to grep
+# or use in scripts. Pipe "svn log" into this script
+
+# When we get a line that starts with a revision number, put the data in variables
+/^r[0-9]+/ {
+    rev=$1
+    user=$3
+    date=$5
+    time=$6
+}
+
+# Anything that isn't a revision line, a separator line or an empty line
+# will be part of the commit message. Concatenate these into the comment variable
+! (/^r[0-9+]/ || /^-+$/ || /^$/) {
+  comment = comment $0 " "
+}
+
+# With every separator line, output what we stored before and reset the comment variable
+# To skip the first line we also check if we've already stored a revision
+/^-+$/ && rev {
+   print date " | " rev " | " user " | " comment
+   comment = ""
+}
+#+end_src
+
+#+begin_src shell :tangle bin/svn-log
+# Usage: svn-log
+svn log \
+    | svn-short-log \
+    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[1;34m<\3>/' \
+    | less -RF
+#+end_src
 
 ** Make status checks of your working copy easier
 
@@ -323,46 +359,6 @@ This alias can be used as:
 
 #+begin_src shell :tangle no
 svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
-#+end_src
-
-See [[file:~/.dotfiles/plugins/git-leuven/SVN.org][SVN aliases]] for more information about these:
-
-#+begin_src shell :tangle bin/svn-short-log
-#!/usr/bin/awk -f
-
-# Original author: Plexus.
-
-# Convert the "svn log" output into a one liner format, which is easier to grep
-# or use in scripts. Pipe "svn log" into this script
-
-# When we get a line that starts with a revision number, put the data in variables
-/^r[0-9]+/ {
-    rev=$1
-    user=$3
-    date=$5
-    time=$6
-}
-
-# Anything that isn't a revision line, a separator line or an empty line
-# will be part of the commit message. Concatenate these into the comment variable
-! (/^r[0-9+]/ || /^-+$/ || /^$/) {
-  comment = comment $0 " "
-}
-
-# With every separator line, output what we stored before and reset the comment variable
-# To skip the first line we also check if we've already stored a revision
-/^-+$/ && rev {
-   print date " | " rev " | " user " | " comment
-   comment = ""
-}
-#+end_src
-
-#+begin_src shell :tangle bin/svn-log
-# Usage: svn-log
-svn log \
-    | svn-short-log \
-    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[0;34m<\3>/' \
-    | less -RF
 #+end_src
 
 #+begin_src shell :tangle bin/svn-status
