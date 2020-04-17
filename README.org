@@ -112,13 +112,9 @@ See ~svn-show~ and ~svn-showtool~ in my Shell configuration.
 
 ** List all the changed files in a commit
 
-Output filenames of files changed in each commit:
+Output filenames of files changed in a commit.
 
-#+begin_src shell
-svn log -v
-#+end_src
-
-See ~svn-changed-files~ in my Shell configuration.
+See ~svn-changed-files~.
 
 ** Show the history of a file
 
@@ -385,11 +381,6 @@ svn diff -c "$1" | less
 svn-showtool() {
     svn diff --diff-cmd='meld' -c "$1" "$2"
 }
-#+end_src
-
-#+begin_src shell
-# Usage: svn-changed-files @REV
-alias svn-changed-files='svn log -v -r'
 #+end_src
 
 #+begin_src shell

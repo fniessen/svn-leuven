@@ -1,0 +1,2 @@
+# Usage: svn-changed-files @REV
+svn log -v -r $1
