@@ -114,7 +114,10 @@ See ~svn-show~ and ~svn-showtool~ in my Shell configuration.
 
 Output filenames of files changed in a commit.
 
-See ~svn-changed-files~.
+#+begin_src shell :tangle bin/svn-changed-files
+# Usage: svn-changed-files @REV
+svn log -v -r $1
+#+end_src
 
 ** Show the history of a file
 
@@ -125,6 +128,8 @@ svn log -q path/to/file | grep "^r" | awk '{print $1}' # List of revisions.
 #+end_src
 
 See ~svn-filelog~ in my Shell configuration.
+
+** Show the history of a file (with diff)
 
 #+begin_src shell
 svn log --diff path/to/file
@@ -233,8 +238,9 @@ svn diff -r 22334:HEAD --summarize <url of the branch>
 
 Show which files are modified in the repository (with an ~*~):
 
-#+begin_src shell
-alias svn-incoming='svn status -u | grep \*'
+#+begin_src shell :tangle bin/svn-incoming
+# Usage: svn-incoming
+svn status -u | grep \*
 #+end_src
 
 #+begin_src shell
@@ -287,7 +293,7 @@ Add a file (or a file glob pattern) to ignore without deleting the previous
 value of the ~svn:ignore~ property... from the command line.
 
 #+begin_src shell :tangle bin/svn-ignore
-# Usage: svnignore admin/notes/\*.tex
+# Usage: svn-ignore admin/notes/\*.tex
 
 target="$1"
 targetdirectory=$(dirname $target)

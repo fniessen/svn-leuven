@@ -1,0 +1,2 @@
+# Usage: svn-incoming
+svn status -u | grep \*
