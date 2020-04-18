@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/usr/bin/bash -u
 
 # This command outputs the top-most parent of the current folder that is still
 # under SVN revision control to standard out.
