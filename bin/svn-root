@@ -1,0 +1,43 @@
+#!/bin/bash -u
+
+# This command outputs the top-most parent of the current folder that is still
+# under SVN revision control to standard out.
+
+# If the current folder is not under SVN revision control, nothing is output
+# and a non-zero exit value is given.
+
+# Init.
+current="."
+
+if [[ ! -d "$current" ]]; then
+    echo "Not a directory"
+    exit 2
+fi
+
+if [[ -d "$current/.svn" ]]; then
+    wcroot="$(pwd)"
+else
+    wcroot=""
+fi
+
+# loop from parent to parent until we reach "/"
+while [[ -d "$current/.." ]]; do
+    current=$(readlink -m "$current/..") # normalize path
+
+    if [[ -d "$current/.svn" ]]; then
+        wcroot="$current"
+    fi
+
+    # exit loop
+    if [[ "$current" == "/" ]]; then
+        break
+    fi
+done
+
+# output
+if [[ "$wcroot" != "" ]]; then
+    echo "$wcroot"
+else
+    echo "fatal: not a SVN repository (or any parent)" > /dev/stderr
+    exit 128
+fi
