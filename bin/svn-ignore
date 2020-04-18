@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Usage: svn-ignore admin/notes/\*.tex
 
 target="$1"
