@@ -1,2 +1,3 @@
+#!/usr/bin/env bash
 # Usage: svn-show @REV
 svn diff -c "$1" | less

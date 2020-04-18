@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #!/usr/bin/awk -f
 
 # Original author: Plexus.

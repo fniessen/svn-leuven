@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Usage: svn-log
 svn log \
     | svn-short-log \

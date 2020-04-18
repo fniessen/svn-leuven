@@ -1,4 +1,4 @@
-#+TITLE:     SVN aliases
+#+TITLE:     Awesome SVN aliases and extra commands
 #+AUTHOR:    Fabrice Niessen
 #+EMAIL:     (concat "fniessen" at-sign "pirilampo.org")
 #+DESCRIPTION: Pretty format for `git log' and different helpful command aliases
@@ -9,6 +9,8 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 
 #+EXPORT_EXCLUDE_TAGS: noexport
+
+#+PROPERTY:  header-args :shebang #!/usr/bin/env bash
 
 Doc: http://liris.cnrs.fr/seminaires/documents/seminaire_tuto_SVN.pdf
 
