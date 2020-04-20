@@ -55,9 +55,7 @@ The following aliases are interesting for using SVN a bit like Git.
 
 ** One-line log format ('git log')
 
-#+begin_src shell :tangle bin/svn-log-shorten
-#!/usr/bin/awk -f
-
+#+begin_src shell :tangle bin/svn-log-shorten :shebang #!/usr/bin/awk -f
 # Original author: Plexus.
 
 # Convert the "svn log" output into a one liner format, which is easier to grep

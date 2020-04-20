@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
 #!/usr/bin/awk -f
-
 # Original author: Plexus.
 
 # Convert the "svn log" output into a one liner format, which is easier to grep
