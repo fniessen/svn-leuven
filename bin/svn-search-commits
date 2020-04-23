@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Usage: svn-search-commits ARG
+svn log --search "$1"

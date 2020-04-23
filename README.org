@@ -137,6 +137,13 @@ svn log --diff path/to/file
 
 See ~svn-filelog-p~ in my Shell configuration.
 
+* Search
+
+#+begin_src shell :tangle bin/svn-search-commits
+# Usage: svn-search-commits ARG
+svn log --search "$1"
+#+end_src
+
 * REVERT - Undo things
 
 ~svn merge -r 1944:1943 .~ should revert the changes of ~r1944~ in your working
