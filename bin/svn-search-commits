@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # Usage: svn-search-commits ARG
-svn log --search "$1"
+svn log --search "$1" \
+    | svn-log-shorten \
+    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[1;34m<\3>/'

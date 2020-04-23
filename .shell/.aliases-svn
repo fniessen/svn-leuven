@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Search through files, ignoring .svn directories.
 alias svn-find='find . -not \( -name .svn -prune \)'
 
