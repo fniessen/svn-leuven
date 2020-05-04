@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Usage: svn-file-history PATH
+
+svn log -q "$1" \
+    | grep ^r \
+    | awk '{print $1}' \
+    | sed -e 's/^r//' \
+    | xargs -L 1 svn log -r \
+    | uniq \
+    | svn-log-shorten \
+    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[1;34m<\3>/'
