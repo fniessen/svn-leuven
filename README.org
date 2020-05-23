@@ -1,4 +1,4 @@
-#+TITLE:     Awesome SVN aliases and extra commands
+#+TITLE:     Awesome SVN commands and extra config
 #+AUTHOR:    Fabrice Niessen
 #+EMAIL:     (concat "fniessen" at-sign "pirilampo.org")
 #+DESCRIPTION: Pretty format for `git log' and different helpful command aliases
