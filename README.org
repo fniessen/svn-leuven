@@ -146,6 +146,12 @@ svn log --search "$1" \
     | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[1;34m<\3>/'
 #+end_src
 
+** Searching subversion history (full text)
+
+Search the actual diffs of the commit history, and not filenames and/or commit
+messages.
+https://stackoverflow.com/questions/44176/searching-subversion-history-full-text
+
 * REVERT - Undo things
 
 ~svn merge -r 1944:1943 .~ should revert the changes of ~r1944~ in your working
@@ -373,6 +379,29 @@ svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 #+end_src
 
 #+begin_src shell :tangle bin/svn-status
+#? svn-status, Time-stamp: <2020-09-10 Thu 11:57>
+#? Copyright (C) 2020 Fabrice Niessen
+#?
+#? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+#? This is free software: you are free to change and redistribute it.
+#? There is NO WARRANTY, to the extent permitted by law.
+
+##? Usage: svn-status [options]
+##?
+##? Print the colored status of working copy files and directories.
+##?
+##? Arguments:
+##?   PATTERN                       optional string
+##?
+##? Options:
+##?   -h, --help                    display this help and exit
+##?   -V, --version                 display version information and exit
+
+help=$(grep "^##?" "$0" | cut -c 5-)
+version=$(grep "^#?"  "$0" | cut -c 4-)
+parsed="$(docopts -h "$help" -V "$version" : "$@")"
+eval "$parsed"
+
 svn status \
     | sed -e 's/^\(\([A-Z]\s\+\(+\s\+\)\?\)\?C .*\)$/\o33\[1;35m\1\o33[0m/' \
           -e 's/^\(\s*M.*\)$/\o33\[1;33m\1\o33[0m/' \
