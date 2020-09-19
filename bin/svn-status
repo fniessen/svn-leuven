@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#? svn-status, Time-stamp: <2020-09-10 Thu 11:57>
+#? svn-status, Time-stamp: <2020-09-19 Sat 18:12>
 #? Copyright (C) 2020 Fabrice Niessen
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -9,9 +9,6 @@
 ##? Usage: svn-status [options]
 ##?
 ##? Print the colored status of working copy files and directories.
-##?
-##? Arguments:
-##?   PATTERN                       optional string
 ##?
 ##? Options:
 ##?   -h, --help                    display this help and exit
