@@ -26,11 +26,6 @@ svn-showtool() {
     svn diff --diff-cmd='meld' -c "$1" "$2"
 }
 
-# Usage: svn-file-history PATH
-svn-file-history() {
-    svn log -q "$1" | grep --color=never "^r"
-}
-
 # Usage: svn-file-history-diff PATH
 svn-file-history-diff() {
     svn log --diff "$1" | less
