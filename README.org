@@ -6,7 +6,7 @@
 #+LANGUAGE:  en
 #+OPTIONS:   H:4 num:nil toc:2
 
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 #+EXPORT_EXCLUDE_TAGS: noexport
 
@@ -87,7 +87,7 @@ The following aliases are interesting for using SVN a bit like Git.
 # Usage: svn-log
 svn log \
     | svn-log-shorten \
-    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;33m\1\o33[0m \o33\[0;32m\2\o33[0m \4\o33\[1;34m<\3>/' \
+    | sed -e 's/^\(.*\) | \(.*\) | \(.*\) | \(.*\)$/\o33\[0;32m\1\o33[0m \o33\[0;33m\2\o33[0m \4\o33\[1;34m<\3>/' \
     | less -RF
 #+end_src
 
