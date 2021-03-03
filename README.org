@@ -152,6 +152,27 @@ Search the actual diffs of the commit history, and not filenames and/or commit
 messages.
 https://stackoverflow.com/questions/44176/searching-subversion-history-full-text
 
+* Add / Delete
+
+*Add* all new files:
+
+#+begin_src shell
+svn st | grep ^? | awk {'print $2'} | xargs svn add
+#+end_src
+
+*Delete* all locally missing files:
+
+#+begin_src shell
+svn st | grep ^! | awk {'print $2'} | xargs svn rm
+svn st | grep ^! | cut -d! -f2| sed 's/^ *//' | sed 's/^/"/g' | sed 's/$/"/g' | xargs svn rm
+#+end_src
+
+*Commit:*
+
+#+begin_src shell
+svn commit -m "Commit message"
+#+end_src
+
 * REVERT - Undo things
 
 ~svn merge -r 1944:1943 .~ should revert the changes of ~r1944~ in your working
