@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-#? svn-status, Time-stamp: <2020-09-19 Sat 18:12>
-#? Copyright (C) 2020 Fabrice Niessen
+#? svn-status, Time-stamp: <2020-09-10 Thu 11:57>
+#? Copyright (C) 2020-2021 Fabrice Niessen
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #? This is free software: you are free to change and redistribute it.

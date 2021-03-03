@@ -6,7 +6,7 @@
 #+LANGUAGE:  en
 #+OPTIONS:   H:4 num:nil toc:2
 
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: ~/org/theme-readtheorg.setup
 
 #+EXPORT_EXCLUDE_TAGS: noexport
 
@@ -380,7 +380,7 @@ svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 
 #+begin_src shell :tangle bin/svn-status
 #? svn-status, Time-stamp: <2020-09-10 Thu 11:57>
-#? Copyright (C) 2020 Fabrice Niessen
+#? Copyright (C) 2020-2021 Fabrice Niessen
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #? This is free software: you are free to change and redistribute it.
@@ -389,9 +389,6 @@ svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 ##? Usage: svn-status [options]
 ##?
 ##? Print the colored status of working copy files and directories.
-##?
-##? Arguments:
-##?   PATTERN                       optional string
 ##?
 ##? Options:
 ##?   -h, --help                    display this help and exit
