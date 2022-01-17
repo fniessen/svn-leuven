@@ -12,6 +12,11 @@
 
 #+PROPERTY:  header-args :shebang #!/usr/bin/env bash
 
+#+name: current-time
+#+begin_src emacs-lisp :eval yes :results value silent :tangle no :exports none
+(format-time-string "%Y%m%d.%H%M")
+#+end_src
+
 Doc: http://liris.cnrs.fr/seminaires/documents/seminaire_tuto_SVN.pdf
 
 * How to fix "unable to create pristine install stream"
@@ -36,13 +41,17 @@ To *compare all modified files* in your working copy with the ~HEAD~ revision in
 repository, use the following command:
 
 #+begin_src shell
-alias svn-diffall="svn status | grep '^M' | awk '{print $2}' | xargs svn diff -r HEAD"
+alias svn-diff-all="svn status \
+    | grep '^M' \
+    | awk '{print $2}' \
+    | xargs svn diff -r HEAD"
 #+end_src
 
 Colored ~svn diff~ command like ~git diff~.
 
 #+begin_src shell
-alias svn-diff='svn diff --diff-cmd=colordiff --extensions=" -u --strip-trailing-cr --ignore-space-change " | less --quit-if-one-screen'
+alias svn-diff='svn diff --diff-cmd=colordiff --extensions=" -u --strip-trailing-cr --ignore-space-change " \
+    | less --quit-if-one-screen'
 #+end_src
 
 #+begin_tip
@@ -280,8 +289,8 @@ svn status -u | grep \*
 #+end_src
 
 #+begin_src shell
-svn log -r BASE:HEAD                    # Equivalent of `git log'
-svn log --diff -r BASE:HEAD             # Equivalent of `git log -p'
+svn log -r BASE:HEAD                    # Equivalent of `git log'.
+svn log --diff -r BASE:HEAD             # Equivalent of `git log -p'.
 #+end_src
 
 ** Preview incoming changes
@@ -399,9 +408,9 @@ This alias can be used as:
 svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 #+end_src
 
-#+begin_src shell :tangle bin/svn-status
-#? svn-status, Time-stamp: <2020-09-10 Thu 11:57>
-#? Copyright (C) 2020-2021 Fabrice Niessen
+#+begin_src shell :tangle bin/svn-status :noweb yes
+#? svn-status, Time-stamp: <<current-time()>>
+#? Copyright (C) 2020-2022 Fabrice Niessen
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #? This is free software: you are free to change and redistribute it.
@@ -460,7 +469,10 @@ svn-unmodify() {
 #+end_src
 
 #+begin_src shell
-alias svn-nevermind='read -p "Destroy all local changes? [y/N]" && [[ $REPLY =~ ^[yY] ]] && svn revert . -R && rm -rf $(awk -f <(echo "/^?/{print \$2}") <(svn status) ;)'
+alias svn-nevermind='read -p "Destroy all local changes? [y/N]" \
+    && [[ $REPLY =~ ^[yY] ]] \
+    && svn revert . -R \
+    && rm -rf $(awk -f <(echo "/^?/{print \$2}") <(svn status) ;)'
 #+end_src
 
 Nuclear version which:

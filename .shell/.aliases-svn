@@ -36,4 +36,7 @@ svn-unmodify() {
     svn revert "$1"
 }
 
-alias svn-nevermind='read -p "Destroy all local changes? [y/N]" && [[ $REPLY =~ ^[yY] ]] && svn revert . -R && rm -rf $(awk -f <(echo "/^?/{print \$2}") <(svn status) ;)'
+alias svn-nevermind='read -p "Destroy all local changes? [y/N]" \
+    && [[ $REPLY =~ ^[yY] ]] \
+    && svn revert . -R \
+    && rm -rf $(awk -f <(echo "/^?/{print \$2}") <(svn status) ;)'
