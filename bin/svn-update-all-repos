@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Define color variables.
+BOLD=$(tput bold)
+RESET=$(tput sgr0)
+
+# Print message.
+printf "\nSearching at most 5 levels of directories...\n\n"
+
+# Loop through each repository found by 'find'.
+find . -maxdepth 5 -name ".svn" -type d | while read -r repo; do
+    # Print repository name in blue bold
+    printf "Current repository: ${BOLD}%s${RESET}\n" "${repo#./}"
+
+    # Update repository.
+    (cd "$repo"; svn update)
+    printf "\n"
+done
