@@ -424,10 +424,21 @@ svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 ##?   -h, --help                    display this help and exit
 ##?   -V, --version                 display version information and exit
 
+set -euo pipefail
+
+# Check if docopts command is available.
+if ! command -v docopts > /dev/null 2>&1; then
+    printf >&2 'Error: docopts command not found.\n'
+    exit 2
+fi
+
+# Extract help and version information from the script.
 help=$(grep "^##?" "$0" | cut -c 5-)
-version=$(grep "^#?"  "$0" | cut -c 4-)
-parsed="$(docopts -h "$help" -V "$version" : "$@")"
-eval "$parsed"
+version=$(grep "^#?" "$0" | cut -c 4-)
+
+# Get command-line arguments.
+args="$(docopts -h "$help" -V "$version" : "$@")"
+eval "$args"
 
 svn status \
     | sed -e 's/^\(\([A-Z]\s\+\(+\s\+\)\?\)\?C .*\)$/\o33\[1;35m\1\o33[0m/' \
