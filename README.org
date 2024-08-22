@@ -17,8 +17,6 @@
 (format-time-string "%Y%m%d.%H%M")
 #+end_src
 
-Doc: http://liris.cnrs.fr/seminaires/documents/seminaire_tuto_SVN.pdf
-
 * How to fix "unable to create pristine install stream"
 
 #+begin_src shell
