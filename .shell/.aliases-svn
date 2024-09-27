@@ -16,8 +16,8 @@ svn-grep-all-rev() {
           )
 }
 
-# SVN repository path
-alias svn-remote-get-url="svn info | egrep '^URL: (.*)' | sed s/URL\:\ //"
+# Get the URL of the remote SVN repository.
+alias svn-remote-get-url="svn info | grep -E '^URL: ' | sed 's/^URL: //'"
 
 alias svn-st=svn-status
 
