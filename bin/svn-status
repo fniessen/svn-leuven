@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #? svn-status, Time-stamp: 20220117.1119
-#? Copyright (C) 2020-2023 Fabrice Niessen
+#? Copyright (C) 2020-2024 Fabrice Niessen
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #? This is free software: you are free to change and redistribute it.
@@ -26,7 +26,7 @@ fi
 help=$(grep "^##?" "$0" | cut -c 5-)
 version=$(grep "^#?" "$0" | cut -c 4-)
 
-# Get command-line arguments.
+# Parse command-line arguments using docopts.
 args="$(docopts -h "$help" -V "$version" : "$@")"
 eval "$args"
 
