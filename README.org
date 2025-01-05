@@ -408,7 +408,7 @@ svn COMMAND $(svn-remote-get-url)       # Retrieve the full RepoURL.
 
 #+begin_src shell :tangle bin/svn-status :noweb yes
 #? svn-status, Time-stamp: <<current-time()>>
-#? Copyright (C) 2020-2022 Fabrice Niessen
+#? Copyright (C) 2020-2022 Fabrice Niessen. All rights reserved.
 #?
 #? License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 #? This is free software: you are free to change and redistribute it.
