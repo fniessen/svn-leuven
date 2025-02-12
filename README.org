@@ -14,7 +14,7 @@
 
 #+name: current-time
 #+begin_src emacs-lisp :eval yes :results value silent :tangle no :exports none
-(format-time-string "%Y%m%d.%H%M")
+(format-time-string "<%Y%m%d.%H%M>")
 #+end_src
 
 * How to fix "unable to create pristine install stream"
