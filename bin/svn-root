@@ -38,6 +38,6 @@ done
 if [[ "$wcroot" != "" ]]; then
     echo "$wcroot"
 else
-    echo "fatal: not a SVN repository (or any parent)" > /dev/stderr
+    echo >&2 "fatal: not a SVN repository (or any parent)"
     exit 128
 fi

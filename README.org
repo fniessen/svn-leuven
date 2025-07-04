@@ -13,7 +13,7 @@
 #+PROPERTY:  header-args :shebang #!/usr/bin/env bash
 
 #+name: current-time
-#+begin_src emacs-lisp :eval yes :results value silent :tangle no :exports none
+#+begin_src emacs-lisp :eval yes :results value :tangle no
 (format-time-string "<%Y%m%d.%H%M>")
 #+end_src
 
